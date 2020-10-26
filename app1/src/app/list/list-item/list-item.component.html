@@ -1,0 +1,14 @@
+<div
+  class="todo-item"
+  [ngClass]="{
+    'todo-done': todo.done
+  }"
+  (click)="doneTodo()"
+>
+  <p class="item-desc">
+    {{ todo.todo }}
+  </p>
+  <div class="item-actions">
+    <button class="btn btn-danger" (click)="removeTodo($event)">&#88;</button>
+  </div>
+</div>

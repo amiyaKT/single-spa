@@ -1,0 +1,21 @@
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  background-color: #50514f;
+  color: #ffffff;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.todo-done {
+  background-color: #67e0a3;
+  color: #000000;
+}
+
+.item-desc {
+  display: flex;
+  padding: 0.5em 1em;
+  word-break: break-word;
+  flex-direction: column;
+  justify-content: center;
+}

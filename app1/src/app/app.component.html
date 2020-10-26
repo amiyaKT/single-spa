@@ -1,11 +1,14 @@
-<h1>App 1</h1>
-<p>
-  <a routerLink="/app1/comp1"> Internal Routing - Lazy Loading Module </a>
-</p>
-<p>
-  <a routerLink="/app1/comp2"> Internal Routing </a>
-</p>
-<p>
-  <a routerLink="/app2"> External Routing </a>
-</p>
-<router-outlet></router-outlet>
+<div class="container todo-container">
+  <div class="row text-center">
+    <h2 class="title">Todo List</h2>
+  </div>
+  <div class="row input-container">
+    <form (ngSubmit)="addTodo()" [formGroup]="todoForm">
+      <label for="desc">Enter Todo: </label>
+      <input type="text" name="desc" id="desc" formControlName="todo" />
+    </form>
+  </div>
+  <div class="row">
+    <app-list></app-list>
+  </div>
+</div>

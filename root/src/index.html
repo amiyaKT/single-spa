@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Microfrontend</title>
+
+		<script src="https://cdn.jsdelivr.net/npm/regenerator-runtime@0.13.5/runtime.min.js"></script>
+		<meta
+			http-equiv="Content-Security-Policy"
+			content="default-src 'self' https: localhost:*; script-src 'unsafe-inline' https: localhost:*; connect-src https: localhost:* ws://localhost:*; style-src 'self' https: 'unsafe-inline'; object-src 'none'; img-src 'self' data:;"
+		/>
+		<meta name="importmap-type" content="systemjs-importmap" />
+		<script type="systemjs-importmap">
+			{
+				"imports": {
+					"single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.5.5/lib/system/single-spa.min.js",
+					"@microfrontends/root-config": "//localhost:9000/microfrontends-root-config.js",
+					"@microfrontends/app1": "http://localhost:4200/main.js",
+					"@microfrontends/app2": "http://localhost:5000/main.js"
+				}
+			}
+		</script>
+		<link
+			rel="preload"
+			href="https://cdn.jsdelivr.net/npm/single-spa@5.5.5/lib/system/single-spa.min.js"
+			as="script"
+		/>
+
+		<!-- For Angular Applications ONLY -->
+		<script src="https://cdn.jsdelivr.net/npm/zone.js@0.10.3/dist/zone.min.js"></script>
+
+		<script src="https://cdn.jsdelivr.net/npm/import-map-overrides@1.16.0/dist/import-map-overrides.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/systemjs@6.4.0/dist/system.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/systemjs@6.4.0/dist/extras/amd.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/systemjs@6.4.0/dist/extras/named-exports.js"></script>
+
+		<template id="single-spa-layout">
+			<single-spa-router base="/">
+				<main>
+					<route default>
+						<div class="app-container">
+							<div class="application-1 row">
+								<application name="@microfrontends/app1"></application>
+							</div>
+							<div class="application-2 row">
+								<application name="@microfrontends/app2"></application>
+							</div>
+						</div>
+					</route>
+				</main>
+			</single-spa-router>
+		</template>
+
+		<link rel="stylesheet" href="src/style.css" />
+	</head>
+	<body>
+		<script>
+			System.import('@microfrontends/root-config');
+		</script>
+		<import-map-overrides-full
+			show-when-local-storage="devtools"
+			dev-libs
+		></import-map-overrides-full>
+	</body>
+</html>

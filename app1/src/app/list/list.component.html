@@ -1,0 +1,10 @@
+<ng-container *ngIf="todo.length > 0; else addTodo">
+  <ul class="todo-list">
+    <li *ngFor="let todoItem of todo">
+      <app-list-item [todo]="todoItem"></app-list-item>
+    </li>
+  </ul>
+</ng-container>
+<ng-template #addTodo>
+  <h4 class="text-center">Add Your Todo List</h4>
+</ng-template>

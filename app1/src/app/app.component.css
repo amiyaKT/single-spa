@@ -1,0 +1,10 @@
+.todo-container {
+  padding: 1em;
+  height: 100%;
+  background-color: #ffe066;
+  border-radius: 1rem;
+}
+
+.title {
+  text-decoration: underline;
+}

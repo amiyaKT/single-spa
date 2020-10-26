@@ -1,0 +1,20 @@
+.title {
+  text-decoration: underline;
+}
+
+.quote {
+  background-color: #faf0ca;
+  border-radius: 1rem;
+  border-left: 0.5rem solid #0d3b66;
+  padding: 1em;
+}
+
+blockquote {
+  display: flex;
+  flex-direction: column;
+}
+
+blockquote footer {
+  margin-left: auto;
+  margin-top: auto;
+}
